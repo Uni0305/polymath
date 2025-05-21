@@ -1,5 +1,5 @@
-cython
 aiohttp
-toml
 colorama>=0.4.5
+cython
 setuptools
+toml
