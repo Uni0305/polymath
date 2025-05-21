@@ -1,10 +1,10 @@
 import sys, os
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, Extension
+from setuptools.command.build_ext import build_ext
 
 # ensure cython is installed
 try:
-    from Cython.Distutils import build_ext
+    from Cython.Distutils import build_ext as cython_build_ext
 except:
     print("You don't seem to have Cython installed. Please get a")
     print("copy from www.cython.org and install it")
@@ -47,5 +47,5 @@ setup(
     name="polymath",
     packages=["polymath", "polymath.filters"],
     ext_modules=extensions,
-    cmdclass={"build_ext": build_ext},
+    cmdclass={"build_ext": cython_build_ext},
 )
